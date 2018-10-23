@@ -38,6 +38,7 @@ class MainPage(QObject):
 
         ##Object Text Edit
         self.customer_location = self.ui.findChild(QLineEdit, 'customer_location_edit')
+        self.customer_location.setText("13.7297987,100.77533169999992")
 
         ##Object Label
         self.supplier_label = self.ui.findChild(QLabel, 'supplier_label')
@@ -49,6 +50,10 @@ class MainPage(QObject):
         ##initialize web engine
         self.web_widget = self.ui.findChild(QWidget, 'map_widget')
         self.webEngineView = QWebEngineView()
+        
+        lat , lon = self.customer_location.text().split(',')
+        self.MapController.setCustomerMarker(lat , lon)
+        self.MapController.setSupplierMarker(lat , lon)
         mapHTML = self.MapController.getHTML()
         self.webEngineView.setHtml(mapHTML)
         self.webEngineView.resize(721, 531);
@@ -86,8 +91,10 @@ class MainPage(QObject):
     def clickList(self):
         clicked_supplier = self.supplier_list.selectedItems()[0].text()
         location = self.SupplierController.getLocation(clicked_supplier)
+        lat , lon = self.customer_location.text().split(',')
+        self.MapController.setCustomerMarker(lat , lon)
         lat , lon = location.split(',')
-        self.MapController.setNewCenter(lat,lon)
+        self.MapController.setSupplierMarker(lat,lon)
         self.webEngineView.setHtml(self.MapController.getHTML())
         
     def showUI(self):

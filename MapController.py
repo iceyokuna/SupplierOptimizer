@@ -1,12 +1,18 @@
 class MapController:
     def __init__(self):
-        self.center_lat = "13.7297987"#default location
-        self.center_lon = "100.77533169999992"#default location
+        self.customer_lat = ""
+        self.customer_lon = ""
+        self.supplier_lat = ""
+        self.supplier_lon = ""
         self.html = ""
 
-    def setNewCenter(self, lat, lon):
-        self.center_lat = lat
-        self.center_lon = lon
+    def setCustomerMarker(self, lat, lon):
+        self.customer_lat = lat
+        self.customer_lon = lon
+
+    def setSupplierMarker(self, lat, lon):
+        self.supplier_lat = lat
+        self.supplier_lon = lon
         
     def setHTML(self, html):
         self.html = html
@@ -72,23 +78,30 @@ class MapController:
     </div>
 
     <script>
+    var supply_label = 'S'
+    var customer_label = 'C'
     var glo_pid = 0;
     var glo_plo = 0;
     glo_pn = 0;
     
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: '''+self.center_lat+''', lng: '''+self.center_lon+'''},
+          center: {lat: '''+self.customer_lat+''', lng: '''+self.customer_lon+'''},
           zoom: 13
         });
-
-
+        var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
           var marker = new google.maps.Marker({
-            position: {lat: '''+self.center_lat+''', lng: '''+self.center_lon+'''},
+            position: {lat: '''+self.customer_lat+''', lng: '''+self.customer_lon+'''},
             map: map,
-            title: 'Hello World!'
+            icon: image
         });
+        marker.setAnimation(google.maps.Animation.BOUNCE);
 
+          var marker2 = new google.maps.Marker({
+            position: {lat: '''+self.supplier_lat+''', lng: '''+self.supplier_lon+'''},
+            map: map,
+        });
+        marker2.setAnimation(google.maps.Animation.BOUNCE);
 
         var input = document.getElementById('pac-input');
 
