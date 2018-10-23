@@ -19,12 +19,10 @@ class MapController:
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
       #map {
         height: 100%;
       }
-      /* Optional: Makes the sample page fill the window. */
+
       html, body {
         height: 100%;
         margin: 0;
@@ -74,24 +72,22 @@ class MapController:
     </div>
 
     <script>
-      // This sample uses the Place Autocomplete widget to allow the user to search
-      // for and select a place. The sample then displays an info window containing
-      // the place ID and other information about the place that the user has
-      // selected.
-
-      // This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-      
     var glo_pid = 0;
     var glo_plo = 0;
     glo_pn = 0;
+    
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: '''+self.center_lat+''', lng: '''+self.center_lon+'''},
           zoom: 13
         });
 
+
+          var marker = new google.maps.Marker({
+            position: {lat: '''+self.center_lat+''', lng: '''+self.center_lon+'''},
+            map: map,
+            title: 'Hello World!'
+        });
 
 
         var input = document.getElementById('pac-input');
@@ -107,6 +103,7 @@ class MapController:
         var marker = new google.maps.Marker({
           map: map
         });
+        
         marker.addListener('click', function() {
           infowindow.open(map, marker);
         });
