@@ -82,7 +82,7 @@ class MainPage(QObject):
         self.updateData()
 
     def updateData(self): 
-        for supplier in self.SupplierController.getAllSupplier():
+        for supplier in self.SupplierController.getAllSupplier():   
             self.supplier_list.addItem(supplier)
             
         for items in self.SupplierController.getAllItems():
