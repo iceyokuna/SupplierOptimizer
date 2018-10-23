@@ -40,10 +40,22 @@ class SupplierController:
                 return supply[1]
         return None
 
+    def getCost(self, supplier):
+        for supply in self.supplier_detail_list:
+            if (supplier == supply[0]):
+                return supply[3]
+        return None
+
+    def getItem(self, supplier):
+        for supply in self.supplier_detail_list:
+            if (supplier == supply[0]):
+                return supply[2]
+        return None
+
     def getBestSupplier(self, item, customer_lat, customer_lon):
         supplier_list_detail = self.getSupplierByItem(item)
-        best_supplier = self.calculator.calculate(customer_lat,customer_lon,supplier_list_detail)
-        return best_supplier
+        best_supplier,distance = self.calculator.calculate(customer_lat,customer_lon,supplier_list_detail)
+        return best_supplier,distance
         
 
     def __str__(self):

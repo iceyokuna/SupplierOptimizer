@@ -5,6 +5,7 @@ from PySide2.QtWebEngineWidgets import QWebEnginePage, QWebEngineView
 from PySide2.QtUiTools import QUiLoader
 from PySide2.QtWidgets import *
 from PySide2.QtCore import *
+from PySide2.QtGui import *
 from SupplierController import *
 from MapController import *
 
@@ -17,6 +18,12 @@ class MainPage(QObject):
         ui_file.open(QFile.ReadOnly)
         loader = QUiLoader()
         self.ui = loader.load('UI\mainPage.ui')
+        self.window = self.ui.findChild(QWidget, 'mainWidget')
+        print(self.window)
+        palette = QPalette()
+        palette.setBrush(QPalette.Background, QBrush(QPixmap("UI/background.jpg")))
+        self.ui.setPalette(palette)
+        
         ui_file.close()    
 
         #Setup mainpage 
@@ -101,8 +108,15 @@ class MainPage(QObject):
     def startCalculate(self):
         if(self.item_list.selectedItems() != []):
             lat , lon = self.customer_location.text().split(',')
-            best_supplier = self.SupplierController.getBestSupplier(self.item_list.selectedItems()[0].text(), lat,lon)
+            best_supplier,distance = self.SupplierController.getBestSupplier(self.item_list.selectedItems()[0].text(), lat,lon)
             self.setPath(best_supplier)
+            
+            self.supplier_label.setText(self.supplier_label.text() + best_supplier)
+            self.supplier_location_label.setText(self.supplier_location_label.text() + self.SupplierController.getLocation(best_supplier))
+            self.supply_label.setText(self.supply_label.text() + self.SupplierController.getItem(best_supplier))
+            self.transport_cost_label.setText(self.transport_cost_label.text() + distance)
+            self.supply_cost_label.setText(self.supply_cost_label.text() + str(self.SupplierController.getCost(best_supplier)))
+            
 
     def setPath(self, supplier_name):
         location = self.SupplierController.getLocation(supplier_name)

@@ -27,15 +27,15 @@ class SupplierCalculator:
             cost_list.append((supplier[0],distance,supplier[3]))
 
         Min = self.getCost(cost_list[0][1],cost_list[0][2])
-        best_supplier_name = cost_list[0][0]
+        best_supplier = cost_list[0]
         
         for supplier in cost_list:
             cost = self.getCost(supplier[1],supplier[2])
             if(cost <= Min):
                 Min = cost
-                best_supplier_name = supplier[0]
+                best_supplier = supplier
                 
-        return best_supplier_name
+        return best_supplier[0],best_supplier[1]
 
     def __str__(self):
         return str(self.distance_cost)
