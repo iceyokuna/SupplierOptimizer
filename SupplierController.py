@@ -1,8 +1,11 @@
+from SupplierCalculator import *
+
 class SupplierController:
     def __init__(self):
         self.supplier_detail_list = []
         self.supplier_set = []
         self.item_set = []
+        self.calculator = SupplierCalculator()
 
     def addSupplier(self, supplier):
         self.supplier_detail_list.append(supplier)
@@ -36,6 +39,12 @@ class SupplierController:
             if (supplier == supply[0]):
                 return supply[1]
         return None
+
+    def getBestSupplier(self, item, customer_lat, customer_lon):
+        supplier_list_detail = self.getSupplierByItem(item)
+        best_supplier = self.calculator.calculate(customer_lat,customer_lon,supplier_list_detail)
+        return best_supplier
+        
 
     def __str__(self):
         return str(self.supplier_detail_list)

@@ -30,11 +30,14 @@ class MainPage(QObject):
         ##Object List
         self.supplier_list = self.ui.findChild(QListWidget, 'supplierList')
         self.item_list = self.ui.findChild(QListWidget, 'itemList')
-        self.supplier_list.clicked.connect(self.clickList)
+        self.supplier_list.clicked.connect(self.supplierListClicked)
+        self.item_list.clicked.connect(self.itemListClicked)
 
         ##Object Button
         self.import_excel_button = self.ui.findChild(QPushButton, 'importExcelButton')
+        self.start_button = self.ui.findChild(QPushButton, 'startButton')
         self.import_excel_button.clicked.connect(self.importExcel)
+        self.start_button.clicked.connect(self.startCalculate)
 
         ##Object Text Edit
         self.customer_location = self.ui.findChild(QLineEdit, 'customer_location_edit')
@@ -88,9 +91,21 @@ class MainPage(QObject):
         for items in self.SupplierController.getAllItems():
             self.item_list.addItem(items)
 
-    def clickList(self):
+    def supplierListClicked(self):
         clicked_supplier = self.supplier_list.selectedItems()[0].text()
-        location = self.SupplierController.getLocation(clicked_supplier)
+        self.setPath(clicked_supplier)
+
+    def itemListClicked(self):
+        pass
+
+    def startCalculate(self):
+        if(self.item_list.selectedItems() != []):
+            lat , lon = self.customer_location.text().split(',')
+            best_supplier = self.SupplierController.getBestSupplier(self.item_list.selectedItems()[0].text(), lat,lon)
+            self.setPath(best_supplier)
+
+    def setPath(self, supplier_name):
+        location = self.SupplierController.getLocation(supplier_name)
         lat , lon = self.customer_location.text().split(',')
         self.MapController.setCustomerMarker(lat , lon)
         lat , lon = location.split(',')
@@ -109,3 +124,5 @@ if __name__ == "__main__":
 
 ##AIzaSyBmt-IXSmfgH8AsEYAalEUgXuF23GCuNVQ
 ##KMITL location 13.729835, 100.778261
+##resp = requests.get('https://maps.googleapis.com/maps/api/directions/json?origin=13.646667,100.681164&destination=13.730054,100.778890&key=AIzaSyBmt-IXSmfgH8AsEYAalEUgXuF23GCuNVQ')
+##print(resp.json()["routes"][0]["legs"][0]["distance"]["text"])

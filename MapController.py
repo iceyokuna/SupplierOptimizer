@@ -111,7 +111,9 @@ class MapController:
         directionsService.route({
                   origin: {lat: '''+self.customer_lat+''', lng: '''+self.customer_lon+'''},
                   destination: {lat: '''+self.supplier_lat+''', lng: '''+self.supplier_lon+'''},
-                  travelMode: 'DRIVING'
+                  travelMode: 'DRIVING',
+                  avoidFerries: true,
+                  avoidTolls:true
                 }, function(response, status) {
                   if (status === 'OK') {
                     directionsDisplay.setDirections(response);
