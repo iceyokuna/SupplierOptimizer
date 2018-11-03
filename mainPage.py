@@ -19,7 +19,6 @@ class MainPage(QObject):
         loader = QUiLoader()
         self.ui = loader.load('UI\mainPage.ui')
         self.window = self.ui.findChild(QWidget, 'mainWidget')
-        print(self.window)
         palette = QPalette()
         palette.setBrush(QPalette.Background, QBrush(QPixmap("UI/background.jpg")))
         self.ui.setPalette(palette)
@@ -66,7 +65,7 @@ class MainPage(QObject):
         self.MapController.setSupplierMarker(lat , lon)
         mapHTML = self.MapController.getHTML()
         self.webEngineView.setHtml(mapHTML)
-        self.webEngineView.resize(721, 531);
+        self.webEngineView.resize(761, 721);
         self.webEngineView.setParent(self.web_widget)
         
 
