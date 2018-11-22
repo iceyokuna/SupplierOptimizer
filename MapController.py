@@ -13,10 +13,10 @@ class MapController:
     def setSupplierMarker(self, lat, lon):
         self.supplier_lat = lat
         self.supplier_lon = lon
-        
+
     def setHTML(self, html):
         self.html = html
-        
+
     def getHTML(self):
         return '''<!DOCTYPE html>
 <html>

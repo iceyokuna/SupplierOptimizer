@@ -56,6 +56,13 @@ class MainPage(QObject):
         self.transport_cost_label = self.ui.findChild(QLabel, 'transport_cost_label')
         self.supply_cost_label = self.ui.findChild(QLabel, 'supply_cost_label')
 
+        #ตัวแปล ข้อมูลตัวอักษรเริ่มค้น
+        self.supplier_str = "ชื่อซัพพลายเออร์ :"
+        self.supplier_location_str = "ตำแหน่ง   :"
+        self.supply_str = "สินค้า    :"
+        self.transport_cost_str = "ราคาขนส่ง  :"
+        self.supply_cost_str = "ต้นทุนสินค้า   :"
+
         ##initialize web engine
         self.web_widget = self.ui.findChild(QWidget, 'map_widget')
         self.webEngineView = QWebEngineView()
@@ -90,12 +97,20 @@ class MainPage(QObject):
             
         self.updateData()
 
-    def updateData(self): 
+    def updateData(self):
+        self.supplier_list.clear()
+        self.item_list.clear()
         for supplier in self.SupplierController.getAllSupplier():   
             self.supplier_list.addItem(supplier)
             
         for items in self.SupplierController.getAllItems():
             self.item_list.addItem(items)
+
+        self.supplier_label.setText(self.supplier_str)
+        self.supplier_location_label.setText(self.supplier_location_str)
+        self.supply_label.setText(self.supply_str)
+        self.transport_cost_label.setText(self.transport_cost_str)
+        self.supply_cost_label.setText(self.supply_cost_str)
 
     def supplierListClicked(self):
         clicked_supplier = self.supplier_list.selectedItems()[0].text()
@@ -110,11 +125,11 @@ class MainPage(QObject):
             best_supplier,distance = self.SupplierController.getBestSupplier(self.item_list.selectedItems()[0].text(), lat,lon)
             self.setPath(best_supplier)
             
-            self.supplier_label.setText(self.supplier_label.text() + best_supplier)
-            self.supplier_location_label.setText(self.supplier_location_label.text() + self.SupplierController.getLocation(best_supplier))
-            self.supply_label.setText(self.supply_label.text() + self.SupplierController.getItem(best_supplier))
-            self.transport_cost_label.setText(self.transport_cost_label.text() + distance)
-            self.supply_cost_label.setText(self.supply_cost_label.text() + str(self.SupplierController.getCost(best_supplier)))
+            self.supplier_label.setText(self.supplier_str + best_supplier)
+            self.supplier_location_label.setText(self.supplier_location_str + self.SupplierController.getLocation(best_supplier))
+            self.supply_label.setText(self.supply_str + self.SupplierController.getItem(best_supplier))
+            self.transport_cost_label.setText(self.transport_cost_str + distance)
+            self.supply_cost_label.setText(self.supply_cost_str + str(self.SupplierController.getCost(best_supplier)))
             
 
     def setPath(self, supplier_name):

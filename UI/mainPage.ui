@@ -175,14 +175,14 @@ QWidget#mainWidget{
   <widget class="QLabel" name="supply_cost_label">
    <property name="geometry">
     <rect>
-     <x>1060</x>
+     <x>1050</x>
      <y>180</y>
      <width>171</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>ต้นทุนรวม   :</string>
+    <string>ต้นทุนสินค้า   :</string>
    </property>
   </widget>
   <widget class="QWidget" name="map_widget" native="true">
