@@ -65,7 +65,7 @@ class MainPage(QObject):
         self.MapController.setSupplierMarker(lat , lon)
         mapHTML = self.MapController.getHTML()
         self.webEngineView.setHtml(mapHTML)
-        self.webEngineView.resize(721, 531);
+        self.webEngineView.resize(761, 721);
         self.webEngineView.setParent(self.web_widget)
         
 
