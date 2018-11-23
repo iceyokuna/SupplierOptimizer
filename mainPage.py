@@ -14,12 +14,11 @@ class MainPage(QObject):
     def __init__(self, parent=None):
         super(MainPage,self).__init__(parent)
         #Read File
-        ui_file = QFile('mainPage.ui')
+        ui_file = QFile('UI/mainPage.ui')
         ui_file.open(QFile.ReadOnly)
         loader = QUiLoader()
-        self.ui = loader.load('UI\mainPage.ui')
+        self.ui = loader.load('UI/mainPage.ui')
         self.window = self.ui.findChild(QWidget, 'mainWidget')
-        print(self.window)
         palette = QPalette()
         palette.setBrush(QPalette.Background, QBrush(QPixmap("UI/background.jpg")))
         self.ui.setPalette(palette)
