@@ -7,6 +7,9 @@ class SupplierController:
         self.item_set = []
         self.calculator = SupplierCalculator()
 
+    def setDistanceCost(self, cost_list):
+        self.calculator.setDistanceCost(cost_list)
+
     def addSupplier(self, supplier):
         self.supplier_detail_list.append(supplier)
         

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1270</width>
-    <height>721</height>
+    <width>1577</width>
+    <height>720</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -59,7 +59,7 @@ QWidget#mainWidget{
     <rect>
      <x>770</x>
      <y>640</y>
-     <width>241</width>
+     <width>391</width>
      <height>41</height>
     </rect>
    </property>
@@ -70,10 +70,10 @@ QWidget#mainWidget{
   <widget class="QListView" name="info">
    <property name="geometry">
     <rect>
-     <x>1020</x>
+     <x>1170</x>
      <y>40</y>
-     <width>241</width>
-     <height>201</height>
+     <width>401</width>
+     <height>241</height>
     </rect>
    </property>
   </widget>
@@ -82,7 +82,7 @@ QWidget#mainWidget{
     <rect>
      <x>770</x>
      <y>40</y>
-     <width>241</width>
+     <width>391</width>
      <height>591</height>
     </rect>
    </property>
@@ -90,19 +90,19 @@ QWidget#mainWidget{
   <widget class="QListWidget" name="itemList">
    <property name="geometry">
     <rect>
-     <x>1020</x>
-     <y>280</y>
-     <width>241</width>
-     <height>351</height>
+     <x>1170</x>
+     <y>330</y>
+     <width>401</width>
+     <height>301</height>
     </rect>
    </property>
   </widget>
   <widget class="QLineEdit" name="customer_location_edit">
    <property name="geometry">
     <rect>
-     <x>1090</x>
+     <x>1240</x>
      <y>60</y>
-     <width>161</width>
+     <width>321</width>
      <height>21</height>
     </rect>
    </property>
@@ -110,10 +110,10 @@ QWidget#mainWidget{
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>1030</x>
+     <x>1170</x>
      <y>60</y>
-     <width>61</width>
-     <height>16</height>
+     <width>71</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
@@ -123,10 +123,10 @@ QWidget#mainWidget{
   <widget class="QLabel" name="supplier_label">
    <property name="geometry">
     <rect>
-     <x>1030</x>
-     <y>100</y>
-     <width>221</width>
-     <height>16</height>
+     <x>1180</x>
+     <y>80</y>
+     <width>381</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
@@ -136,9 +136,9 @@ QWidget#mainWidget{
   <widget class="QLabel" name="supplier_location_label">
    <property name="geometry">
     <rect>
-     <x>1070</x>
-     <y>120</y>
-     <width>171</width>
+     <x>1180</x>
+     <y>110</y>
+     <width>381</width>
      <height>20</height>
     </rect>
    </property>
@@ -149,10 +149,10 @@ QWidget#mainWidget{
   <widget class="QLabel" name="supply_label">
    <property name="geometry">
     <rect>
-     <x>1080</x>
-     <y>140</y>
-     <width>171</width>
-     <height>16</height>
+     <x>1180</x>
+     <y>130</y>
+     <width>371</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
@@ -162,10 +162,10 @@ QWidget#mainWidget{
   <widget class="QLabel" name="transport_cost_label">
    <property name="geometry">
     <rect>
-     <x>1060</x>
-     <y>160</y>
-     <width>171</width>
-     <height>16</height>
+     <x>1180</x>
+     <y>190</y>
+     <width>381</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
@@ -175,10 +175,10 @@ QWidget#mainWidget{
   <widget class="QLabel" name="supply_cost_label">
    <property name="geometry">
     <rect>
-     <x>1050</x>
-     <y>180</y>
-     <width>171</width>
-     <height>16</height>
+     <x>1180</x>
+     <y>220</y>
+     <width>381</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
@@ -198,9 +198,9 @@ QWidget#mainWidget{
   <widget class="QPushButton" name="startButton">
    <property name="geometry">
     <rect>
-     <x>1020</x>
+     <x>1170</x>
      <y>640</y>
-     <width>241</width>
+     <width>401</width>
      <height>41</height>
     </rect>
    </property>
@@ -213,7 +213,7 @@ QWidget#mainWidget{
     <rect>
      <x>770</x>
      <y>10</y>
-     <width>241</width>
+     <width>391</width>
      <height>31</height>
     </rect>
    </property>
@@ -221,9 +221,9 @@ QWidget#mainWidget{
   <widget class="QListView" name="listView_4">
    <property name="geometry">
     <rect>
-     <x>1020</x>
+     <x>1170</x>
      <y>10</y>
-     <width>241</width>
+     <width>401</width>
      <height>31</height>
     </rect>
    </property>
@@ -231,9 +231,9 @@ QWidget#mainWidget{
   <widget class="QListView" name="listView_5">
    <property name="geometry">
     <rect>
-     <x>1020</x>
-     <y>250</y>
-     <width>241</width>
+     <x>1170</x>
+     <y>290</y>
+     <width>401</width>
      <height>31</height>
     </rect>
    </property>
@@ -241,10 +241,10 @@ QWidget#mainWidget{
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>850</x>
-     <y>20</y>
-     <width>141</width>
-     <height>20</height>
+     <x>910</x>
+     <y>9</y>
+     <width>231</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -263,10 +263,10 @@ QWidget#mainWidget{
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>1110</x>
-     <y>20</y>
-     <width>141</width>
-     <height>20</height>
+     <x>1340</x>
+     <y>9</y>
+     <width>221</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -285,10 +285,10 @@ QWidget#mainWidget{
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>1100</x>
-     <y>260</y>
-     <width>141</width>
-     <height>20</height>
+     <x>1320</x>
+     <y>289</y>
+     <width>221</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -309,7 +309,7 @@ QWidget#mainWidget{
     <rect>
      <x>0</x>
      <y>690</y>
-     <width>1271</width>
+     <width>1581</width>
      <height>31</height>
     </rect>
    </property>
@@ -317,10 +317,10 @@ QWidget#mainWidget{
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>440</x>
-     <y>700</y>
-     <width>501</width>
-     <height>20</height>
+     <x>430</x>
+     <y>689</y>
+     <width>951</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -333,7 +333,33 @@ QWidget#mainWidget{
     </font>
    </property>
    <property name="text">
-    <string>Copyright © 2018 King Mongkut's University of Technology North Bangkok</string>
+    <string>Copyright © 2018 Logistic Engineering King Mongkut's University of Technology North Bangkok</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="time_label">
+   <property name="geometry">
+    <rect>
+     <x>1180</x>
+     <y>250</y>
+     <width>391</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>เวลาในการคำนวน  :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="distance_label">
+   <property name="geometry">
+    <rect>
+     <x>1180</x>
+     <y>160</y>
+     <width>381</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ระยะทาง  :</string>
    </property>
   </widget>
  </widget>

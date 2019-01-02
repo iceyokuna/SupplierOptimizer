@@ -88,29 +88,29 @@ class MapController:
         var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer;
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: '''+self.customer_lat+''', lng: '''+self.customer_lon+'''},
+          center: {lat: '''+self.supplier_lat+''', lng: '''+self.supplier_lon+'''},
           zoom: 13
         });
         directionsDisplay.setMap(map);
         
         var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
           var marker = new google.maps.Marker({
-            position: {lat: '''+self.customer_lat+''', lng: '''+self.customer_lon+'''},
+            position: {lat: '''+self.supplier_lat+''', lng: '''+self.supplier_lon+'''},
             map: map,
             icon: image
         });
         marker.setAnimation(google.maps.Animation.BOUNCE);
 
           var marker2 = new google.maps.Marker({
-            position: {lat: '''+self.supplier_lat+''', lng: '''+self.supplier_lon+'''},
+            position: {lat: '''+self.customer_lat+''', lng: '''+self.customer_lon+'''},
             map: map,
         });
         marker2.setAnimation(google.maps.Animation.BOUNCE);
 
         directionsDisplay = new google.maps.DirectionsRenderer({map: map, suppressMarkers: true});
         directionsService.route({
-                  origin: {lat: '''+self.customer_lat+''', lng: '''+self.customer_lon+'''},
-                  destination: {lat: '''+self.supplier_lat+''', lng: '''+self.supplier_lon+'''},
+                  origin: {lat: '''+self.supplier_lat+''', lng: '''+self.supplier_lon+'''},
+                  destination: {lat: '''+self.customer_lat+''', lng: '''+self.customer_lon+'''},
                   travelMode: 'DRIVING',
                   avoidFerries: true,
                   avoidTolls:true

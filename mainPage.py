@@ -1,6 +1,6 @@
 import sys
+import time
 from openpyxl import load_workbook
-from PySide2 import QtCore, QtGui
 from PySide2.QtWebEngineWidgets import QWebEnginePage, QWebEngineView
 from PySide2.QtUiTools import QUiLoader
 from PySide2.QtWidgets import *
@@ -13,7 +13,7 @@ from MapController import *
 class MainPage(QObject):
     def __init__(self, parent=None):
         super(MainPage,self).__init__(parent)
-        #Read File
+        #Read File Ui
         ui_file = QFile('mainPage.ui')
         ui_file.open(QFile.ReadOnly)
         loader = QUiLoader()
@@ -26,7 +26,7 @@ class MainPage(QObject):
         ui_file.close()    
 
         #Setup mainpage 
-        self.ui.setWindowTitle("Tar the God Project")
+        self.ui.setWindowTitle("LE Transport")
 
         #MainPage Attribute
         self.SupplierController = SupplierController()
@@ -47,7 +47,7 @@ class MainPage(QObject):
 
         ##Object Text Edit
         self.customer_location = self.ui.findChild(QLineEdit, 'customer_location_edit')
-        self.customer_location.setText("13.7297987,100.77533169999992")
+        self.customer_location.setText("13.822515, 100.513089")
 
         ##Object Label
         self.supplier_label = self.ui.findChild(QLabel, 'supplier_label')
@@ -55,14 +55,18 @@ class MainPage(QObject):
         self.supply_label = self.ui.findChild(QLabel, 'supply_label')
         self.transport_cost_label = self.ui.findChild(QLabel, 'transport_cost_label')
         self.supply_cost_label = self.ui.findChild(QLabel, 'supply_cost_label')
-
+        self.time_label = self.ui.findChild(QLabel, 'time_label')
+        self.distance_label = self.ui.findChild(QLabel, 'distance_label')
+        
         #ตัวแปล ข้อมูลตัวอักษรเริ่มค้น
         self.supplier_str = "ชื่อซัพพลายเออร์ :"
         self.supplier_location_str = "ตำแหน่ง   :"
         self.supply_str = "สินค้า    :"
         self.transport_cost_str = "ราคาขนส่ง  :"
         self.supply_cost_str = "ต้นทุนสินค้า   :"
-
+        self.time_str = "เวลาในการคำนวน :"
+        self.distance_str = "ระยะทาง  :"
+        
         ##initialize web engine
         self.web_widget = self.ui.findChild(QWidget, 'map_widget')
         self.webEngineView = QWebEngineView()
@@ -83,6 +87,7 @@ class MainPage(QObject):
         
         excel = load_workbook(excel_location)
         sheet = excel.get_sheet_by_name("Sheet1")
+        sheet2 = excel.get_sheet_by_name("Sheet2")
 
         row = 2
         while(True):
@@ -94,8 +99,24 @@ class MainPage(QObject):
                                              sheet.cell(row, 3).value,
                                              sheet.cell(row, 4).value))
             row += 1
-            
+
+        row = 2
+        distance_cost_list = []
+        while(True):
+            #If data is None then break the loop
+            if(sheet2.cell(row, 1).value is None):
+                break
+            distance_cost_list.append((sheet2.cell(row, 1).value,
+                                             sheet2.cell(row, 2).value))
+            row += 1
+
+        #print distance cost list
+        for i in distance_cost_list:
+            print(i)
+
+        self.SupplierController.setDistanceCost(distance_cost_list)
         self.updateData()
+
 
     def updateData(self):
         self.supplier_list.clear()
@@ -111,7 +132,7 @@ class MainPage(QObject):
         self.supply_label.setText(self.supply_str)
         self.transport_cost_label.setText(self.transport_cost_str)
         self.supply_cost_label.setText(self.supply_cost_str)
-
+ 
     def supplierListClicked(self):
         clicked_supplier = self.supplier_list.selectedItems()[0].text()
         self.setPath(clicked_supplier)
@@ -120,17 +141,24 @@ class MainPage(QObject):
         pass
 
     def startCalculate(self):
+        start_time = time.time()
         if(self.item_list.selectedItems() != []):
             lat , lon = self.customer_location.text().split(',')
-            best_supplier,distance = self.SupplierController.getBestSupplier(self.item_list.selectedItems()[0].text(), lat,lon)
+            best_supplier,cost = self.SupplierController.getBestSupplier(self.item_list.selectedItems()[0].text(), lat,lon)
+            distance = best_supplier[1]
+            best_supplier = best_supplier[0]
+
             self.setPath(best_supplier)
             
             self.supplier_label.setText(self.supplier_str + best_supplier)
             self.supplier_location_label.setText(self.supplier_location_str + self.SupplierController.getLocation(best_supplier))
             self.supply_label.setText(self.supply_str + self.SupplierController.getItem(best_supplier))
-            self.transport_cost_label.setText(self.transport_cost_str + distance)
+            self.transport_cost_label.setText(self.transport_cost_str + cost)
             self.supply_cost_label.setText(self.supply_cost_str + str(self.SupplierController.getCost(best_supplier)))
+            self.distance_label.setText(self.distance_str + str(distance))
             
+        Time = str(round((time.time() - start_time),2)) + "  วินาที"
+        self.time_label.setText(self.time_str + Time)
 
     def setPath(self, supplier_name):
         location = self.SupplierController.getLocation(supplier_name)
@@ -151,6 +179,5 @@ if __name__ == "__main__":
     sys.exit(app.exec_())
 
 ##AIzaSyBmt-IXSmfgH8AsEYAalEUgXuF23GCuNVQ
-##KMITL location 13.729835, 100.778261
 ##resp = requests.get('https://maps.googleapis.com/maps/api/directions/json?origin=13.646667,100.681164&destination=13.730054,100.778890&key=AIzaSyBmt-IXSmfgH8AsEYAalEUgXuF23GCuNVQ')
 ##print(resp.json()["routes"][0]["legs"][0]["distance"]["text"])
