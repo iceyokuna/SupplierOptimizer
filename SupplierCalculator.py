@@ -34,7 +34,17 @@ class SupplierCalculator:
  
     def getCost(self, distance,cost):
         distance = float(distance.split()[0])
-        return (distance * self.getDistanceCost(distance))* float(cost)
+        return (distance * self.getDistanceCost(distance))+ float(cost)
+    
+    def sortSupplier(self,cost_list):
+        for i in range(0, len(cost_list)):
+            for j in range(i, len(cost_list)):
+                if(self.getCost(cost_list[i][1],cost_list[i][2]) > self.getCost(cost_list[j][1],cost_list[j][2])):
+                    temp = cost_list[j]
+                    cost_list[j] = cost_list[i]
+                    cost_list[i] = temp
+        return cost_list
+
 
     def calculate(self,lat_customer,lon_customer, supplier_detail):
         cost_list = []
@@ -43,19 +53,20 @@ class SupplierCalculator:
             distance = self.getDistance(lat_customer,lon_customer , supplier_lat, supplier_lon)
             cost_list.append((supplier[0],distance,supplier[3]))
 
-        Min = self.getCost(cost_list[0][1],cost_list[0][2])
-        best_supplier = cost_list[0]
-        
-        for supplier in cost_list:
-            print(supplier)
-            cost = self.getCost(supplier[1],supplier[2])
-            if(cost <= Min):
-                Min = cost
-                best_supplier = supplier
+        #เรียงแล้ว ดีสุด อยู่ที่ 0
+        cost_list = self.sortSupplier(cost_list)
 
-        print(best_supplier)
-        print(Min)  
-        return best_supplier,str(Min)
+        #เอา 3 อันดับ ใส่ list
+        best_supplier_list = []
+        best_supplier_list.append((cost_list[0], self.getCost(cost_list[0][1],cost_list[0][2])))
+        best_supplier_list.append((cost_list[1], self.getCost(cost_list[1][1],cost_list[1][2])))
+        best_supplier_list.append((cost_list[2], self.getCost(cost_list[2][1],cost_list[2][2])))
+
+        print("-------------------------")
+        print(best_supplier_list[0])
+        print("-------------------------")
+
+        return best_supplier_list
 
     def __str__(self):
         return str(self.distance_cost)

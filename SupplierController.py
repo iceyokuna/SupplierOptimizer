@@ -57,8 +57,8 @@ class SupplierController:
 
     def getBestSupplier(self, item, customer_lat, customer_lon):
         supplier_list_detail = self.getSupplierByItem(item)
-        best_supplier,distance = self.calculator.calculate(customer_lat,customer_lon,supplier_list_detail)
-        return best_supplier,distance
+        best_supplier = self.calculator.calculate(customer_lat,customer_lon,supplier_list_detail)
+        return best_supplier
         
 
     def __str__(self):

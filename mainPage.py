@@ -144,7 +144,21 @@ class MainPage(QObject):
         start_time = time.time()
         if(self.item_list.selectedItems() != []):
             lat , lon = self.customer_location.text().split(',')
-            best_supplier,cost = self.SupplierController.getBestSupplier(self.item_list.selectedItems()[0].text(), lat,lon)
+            best_supplier_list = self.SupplierController.getBestSupplier(self.item_list.selectedItems()[0].text(), lat,lon)
+
+            #อันดับที่ 1
+            best_supplier = best_supplier_list[0][0]
+            cost = best_supplier_list[0][1]
+
+            #อันดับที่ 2
+            best_supplier2 = best_supplier_list[1][0]
+            cost2 = best_supplier_list[1][1]
+
+            #อันดับที่ 3
+            best_supplier3 = best_supplier_list[2][0]
+            cost3 = best_supplier_list[2][1]
+
+            best_supplier_cost = best_supplier[2]
             distance = best_supplier[1]
             best_supplier = best_supplier[0]
 
@@ -153,8 +167,8 @@ class MainPage(QObject):
             self.supplier_label.setText(self.supplier_str + best_supplier)
             self.supplier_location_label.setText(self.supplier_location_str + self.SupplierController.getLocation(best_supplier))
             self.supply_label.setText(self.supply_str + self.SupplierController.getItem(best_supplier))
-            self.transport_cost_label.setText(self.transport_cost_str + cost)
-            self.supply_cost_label.setText(self.supply_cost_str + str(self.SupplierController.getCost(best_supplier)))
+            self.transport_cost_label.setText(self.transport_cost_str + str("%.2f" % cost))
+            self.supply_cost_label.setText(self.supply_cost_str + str(best_supplier_cost))
             self.distance_label.setText(self.distance_str + str(distance))
             
         Time = str(round((time.time() - start_time),2)) + "  วินาที"
