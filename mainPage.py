@@ -51,18 +51,28 @@ class MainPage(QObject):
 
         ##Object Label
         self.supplier_label = self.ui.findChild(QLabel, 'supplier_label')
-        self.supplier_location_label = self.ui.findChild(QLabel, 'supplier_location_label')
         self.supply_label = self.ui.findChild(QLabel, 'supply_label')
         self.transport_cost_label = self.ui.findChild(QLabel, 'transport_cost_label')
         self.supply_cost_label = self.ui.findChild(QLabel, 'supply_cost_label')
         self.time_label = self.ui.findChild(QLabel, 'time_label')
         self.distance_label = self.ui.findChild(QLabel, 'distance_label')
+
+        ##Object Label2
+        self.supplier_label_2 = self.ui.findChild(QLabel, 'supplier_label_2')
+        self.supply_cost_label_2 = self.ui.findChild(QLabel, 'transport_cost_label_2')
+        self.transport_cost_label_2 = self.ui.findChild(QLabel, 'supply_cost_label_2')
+        self.distance_label_2 = self.ui.findChild(QLabel, 'distance_label_2')
+
+        ##Object Label3
+        self.supplier_label_3 = self.ui.findChild(QLabel, 'supplier_label_3')
+        self.supply_cost_label_3 = self.ui.findChild(QLabel, 'transport_cost_label_3')
+        self.transport_cost_label_3 = self.ui.findChild(QLabel, 'supply_cost_label_3')
+        self.distance_label_3 = self.ui.findChild(QLabel, 'distance_label_3')
         
         #ตัวแปล ข้อมูลตัวอักษรเริ่มค้น
         self.supplier_str = "ชื่อซัพพลายเออร์ :"
-        self.supplier_location_str = "ตำแหน่ง   :"
-        self.supply_str = "สินค้า    :"
-        self.transport_cost_str = "ราคาขนส่ง  :"
+        self.supply_str = "PRODUCT  "
+        self.transport_cost_str = "ต้นทุนรวม  :"
         self.supply_cost_str = "ต้นทุนสินค้า   :"
         self.time_str = "เวลาในการคำนวน :"
         self.distance_str = "ระยะทาง  :"
@@ -149,27 +159,50 @@ class MainPage(QObject):
             #อันดับที่ 1
             best_supplier = best_supplier_list[0][0]
             cost = best_supplier_list[0][1]
-
+            
             #อันดับที่ 2
             best_supplier2 = best_supplier_list[1][0]
             cost2 = best_supplier_list[1][1]
 
+            supplier_name2 = best_supplier2[0]
+            supply_cost2 = best_supplier2[2]
+            transport_cost2 = cost2
+            distance2 = best_supplier2[1]
+            
             #อันดับที่ 3
             best_supplier3 = best_supplier_list[2][0]
             cost3 = best_supplier_list[2][1]
 
+            supplier_name3 = best_supplier3[0]
+            supply_cost3 = best_supplier3[2]
+            transport_cost3 = cost3
+            distance3 = best_supplier3[1]
+
+            #ไม่ยุ่ง
             best_supplier_cost = best_supplier[2]
             distance = best_supplier[1]
             best_supplier = best_supplier[0]
 
             self.setPath(best_supplier)
             
+         ##setText
             self.supplier_label.setText(self.supplier_str + best_supplier)
-            self.supplier_location_label.setText(self.supplier_location_str + self.SupplierController.getLocation(best_supplier))
             self.supply_label.setText(self.supply_str + self.SupplierController.getItem(best_supplier))
             self.transport_cost_label.setText(self.transport_cost_str + str("%.2f" % cost))
             self.supply_cost_label.setText(self.supply_cost_str + str(best_supplier_cost))
             self.distance_label.setText(self.distance_str + str(distance))
+
+        ##setText2
+            self.supplier_label_2.setText(self.supplier_str + supplier_name2)
+            self.transport_cost_label_2.setText(self.transport_cost_str + str("%.2f" % supply_cost2))
+            self.supply_cost_label_2.setText(self.supply_cost_str + str(transport_cost2))
+            self.distance_label_2.setText(self.distance_str + str(distance2))
+
+        ##setText3
+            self.supplier_label_3.setText(self.supplier_str + supplier_name3)
+            self.transport_cost_label_3.setText(self.transport_cost_str + str("%.2f" % supply_cost3))
+            self.supply_cost_label_3.setText(self.supply_cost_str + str(transport_cost3))
+            self.distance_label_3.setText(self.distance_str + str(distance3))
             
         Time = str(round((time.time() - start_time),2)) + "  วินาที"
         self.time_label.setText(self.time_str + Time)

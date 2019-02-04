@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1577</width>
-    <height>887</height>
+    <width>1260</width>
+    <height>675</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -51,58 +51,77 @@ QLabe#label_1,#label_2,#label_3,#label_4{
 }
 
 QWidget#mainWidget{
-	background-color: rgb(232, 232, 232);
+	background-color:rgb(38, 147, 177);
 }</string>
   </property>
   <widget class="QPushButton" name="importExcelButton">
    <property name="geometry">
     <rect>
-     <x>1060</x>
-     <y>500</y>
+     <x>810</x>
+     <y>330</y>
      <width>101</width>
      <height>41</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>-1</pointsize>
+     <weight>75</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="text">
-    <string>เพิ่มไฟล์</string>
+    <string>Add File</string>
+   </property>
+   <property name="autoRepeatInterval">
+    <number>101</number>
    </property>
   </widget>
   <widget class="QListView" name="info">
    <property name="geometry">
     <rect>
-     <x>1170</x>
-     <y>40</y>
-     <width>401</width>
-     <height>241</height>
+     <x>950</x>
+     <y>150</y>
+     <width>291</width>
+     <height>121</height>
     </rect>
    </property>
   </widget>
   <widget class="QListWidget" name="supplierList">
    <property name="geometry">
     <rect>
-     <x>770</x>
-     <y>40</y>
-     <width>391</width>
-     <height>501</height>
+     <x>650</x>
+     <y>80</y>
+     <width>281</width>
+     <height>301</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>-1</pointsize>
+     <weight>75</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+    </font>
    </property>
   </widget>
   <widget class="QListWidget" name="itemList">
    <property name="geometry">
     <rect>
-     <x>770</x>
-     <y>571</y>
-     <width>391</width>
-     <height>281</height>
+     <x>650</x>
+     <y>420</y>
+     <width>281</width>
+     <height>211</height>
     </rect>
    </property>
   </widget>
   <widget class="QLineEdit" name="customer_location_edit">
    <property name="geometry">
     <rect>
-     <x>1240</x>
-     <y>60</y>
-     <width>321</width>
+     <x>1070</x>
+     <y>20</y>
+     <width>171</width>
      <height>21</height>
     </rect>
    </property>
@@ -110,22 +129,22 @@ QWidget#mainWidget{
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>1170</x>
-     <y>60</y>
-     <width>71</width>
-     <height>21</height>
+     <x>900</x>
+     <y>10</y>
+     <width>161</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">
-    <string>ที่ตั้งลูกค้า</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Customer Location:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="supplier_label">
    <property name="geometry">
     <rect>
-     <x>1180</x>
-     <y>80</y>
-     <width>381</width>
+     <x>960</x>
+     <y>160</y>
+     <width>241</width>
      <height>31</height>
     </rect>
    </property>
@@ -133,51 +152,25 @@ QWidget#mainWidget{
     <string>ชื่อซัพพลายเออร์ :</string>
    </property>
   </widget>
-  <widget class="QLabel" name="supplier_location_label">
-   <property name="geometry">
-    <rect>
-     <x>1180</x>
-     <y>110</y>
-     <width>381</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>ตำแหน่ง   :</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="supply_label">
-   <property name="geometry">
-    <rect>
-     <x>1180</x>
-     <y>130</y>
-     <width>371</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>สินค้า    :</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="transport_cost_label">
    <property name="geometry">
     <rect>
-     <x>1180</x>
-     <y>190</y>
-     <width>381</width>
+     <x>960</x>
+     <y>240</y>
+     <width>251</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>ราคาขนส่ง  :</string>
+    <string>ต้นทุนรวม  :</string>
    </property>
   </widget>
   <widget class="QLabel" name="supply_cost_label">
    <property name="geometry">
     <rect>
-     <x>1180</x>
-     <y>220</y>
-     <width>381</width>
+     <x>960</x>
+     <y>210</y>
+     <width>251</width>
      <height>21</height>
     </rect>
    </property>
@@ -188,62 +181,76 @@ QWidget#mainWidget{
   <widget class="QWidget" name="map_widget" native="true">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>761</width>
-     <height>851</height>
+     <x>20</x>
+     <y>10</y>
+     <width>611</width>
+     <height>611</height>
     </rect>
    </property>
   </widget>
   <widget class="QPushButton" name="startButton">
    <property name="geometry">
     <rect>
-     <x>1070</x>
-     <y>810</y>
+     <x>820</x>
+     <y>580</y>
      <width>91</width>
      <height>41</height>
     </rect>
    </property>
    <property name="text">
-    <string>ค้นหา</string>
+    <string>Search</string>
    </property>
   </widget>
   <widget class="QListView" name="listView_3">
    <property name="geometry">
     <rect>
-     <x>770</x>
-     <y>10</y>
-     <width>391</width>
+     <x>650</x>
+     <y>51</y>
+     <width>281</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(40, 109, 154);
+background-color:rgb(29, 102, 136);
+</string>
    </property>
   </widget>
   <widget class="QListView" name="listView_4">
    <property name="geometry">
     <rect>
-     <x>1170</x>
-     <y>10</y>
-     <width>401</width>
+     <x>950</x>
+     <y>120</y>
+     <width>291</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(101, 183, 255);
+background-color: rgb(46, 194, 234);</string>
    </property>
   </widget>
   <widget class="QListView" name="listView_5">
    <property name="geometry">
     <rect>
-     <x>770</x>
-     <y>551</y>
-     <width>391</width>
+     <x>650</x>
+     <y>390</y>
+     <width>281</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(34, 141, 143);
+background-color: rgb(43, 112, 107);
+background-color:rgb(29, 102, 136);</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>910</x>
-     <y>9</y>
-     <width>231</width>
+     <x>740</x>
+     <y>50</y>
+     <width>91</width>
      <height>31</height>
     </rect>
    </property>
@@ -257,37 +264,22 @@ QWidget#mainWidget{
     </font>
    </property>
    <property name="text">
-    <string>ซัพพลายเออร์</string>
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ffffff;&quot;&gt;Suppiler&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>1340</x>
-     <y>9</y>
-     <width>221</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Noto Sans</family>
-     <pointsize>12</pointsize>
-     <weight>9</weight>
-     <italic>false</italic>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>ข้อมูล</string>
+   <property name="scaledContents">
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>910</x>
-     <y>550</y>
-     <width>221</width>
+     <x>760</x>
+     <y>390</y>
+     <width>91</width>
      <height>31</height>
     </rect>
    </property>
@@ -301,26 +293,16 @@ QWidget#mainWidget{
     </font>
    </property>
    <property name="text">
-    <string>รายการสินค้า</string>
-   </property>
-  </widget>
-  <widget class="QListView" name="listView_1">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>861</y>
-     <width>1581</width>
-     <height>31</height>
-    </rect>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; color:#ffffff;&quot;&gt;Menu&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>430</x>
-     <y>860</y>
+     <x>160</x>
+     <y>640</y>
      <width>951</width>
-     <height>31</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
@@ -333,28 +315,15 @@ QWidget#mainWidget{
     </font>
    </property>
    <property name="text">
-    <string>Copyright © 2018 Logistic Engineering King Mongkut's University of Technology North Bangkok</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="time_label">
-   <property name="geometry">
-    <rect>
-     <x>1180</x>
-     <y>250</y>
-     <width>391</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>เวลาในการคำนวน  :</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Copyright © 2018 Logistic Engineering King Mongkut's University of Technology North Bangkok&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="distance_label">
    <property name="geometry">
     <rect>
-     <x>1180</x>
-     <y>160</y>
-     <width>381</width>
+     <x>960</x>
+     <y>180</y>
+     <width>251</width>
      <height>31</height>
     </rect>
    </property>
@@ -365,8 +334,8 @@ QWidget#mainWidget{
   <widget class="QLabel" name="distance_label_2">
    <property name="geometry">
     <rect>
-     <x>1180</x>
-     <y>440</y>
+     <x>960</x>
+     <y>350</y>
      <width>381</width>
      <height>31</height>
     </rect>
@@ -378,8 +347,8 @@ QWidget#mainWidget{
   <widget class="QLabel" name="supply_cost_label_2">
    <property name="geometry">
     <rect>
-     <x>1180</x>
-     <y>500</y>
+     <x>960</x>
+     <y>380</y>
      <width>381</width>
      <height>21</height>
     </rect>
@@ -391,233 +360,152 @@ QWidget#mainWidget{
   <widget class="QLabel" name="supplier_label_2">
    <property name="geometry">
     <rect>
-     <x>1180</x>
-     <y>360</y>
+     <x>960</x>
+     <y>330</y>
      <width>381</width>
      <height>31</height>
     </rect>
    </property>
    <property name="text">
     <string>ชื่อซัพพลายเออร์ :</string>
-   </property>
-  </widget>
-  <widget class="QListView" name="listView_6">
-   <property name="geometry">
-    <rect>
-     <x>1170</x>
-     <y>290</y>
-     <width>401</width>
-     <height>31</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="supplier_location_label_2">
-   <property name="geometry">
-    <rect>
-     <x>1180</x>
-     <y>390</y>
-     <width>381</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>ตำแหน่ง   :</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="customer_location_edit_2">
-   <property name="geometry">
-    <rect>
-     <x>1240</x>
-     <y>340</y>
-     <width>321</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="supply_label_2">
-   <property name="geometry">
-    <rect>
-     <x>1180</x>
-     <y>410</y>
-     <width>371</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>สินค้า    :</string>
    </property>
   </widget>
   <widget class="QLabel" name="transport_cost_label_2">
    <property name="geometry">
     <rect>
-     <x>1180</x>
-     <y>470</y>
+     <x>960</x>
+     <y>410</y>
      <width>381</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>ราคาขนส่ง  :</string>
+    <string>ต้นทุนรวม  :</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_6">
+  <widget class="QLabel" name="time_label">
    <property name="geometry">
     <rect>
-     <x>1340</x>
-     <y>289</y>
-     <width>221</width>
-     <height>31</height>
+     <x>960</x>
+     <y>620</y>
+     <width>291</width>
+     <height>20</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <family>Noto Sans</family>
-     <pointsize>10</pointsize>
-     <weight>50</weight>
-     <italic>false</italic>
-     <bold>false</bold>
-    </font>
-   </property>
    <property name="text">
-    <string>ข้อมูล</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#aa0000;&quot;&gt;เวลาในการคำนวน  :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QListView" name="info_2">
+  <widget class="QListWidget" name="itemList_2">
    <property name="geometry">
     <rect>
-     <x>1170</x>
+     <x>950</x>
      <y>320</y>
-     <width>401</width>
-     <height>241</height>
+     <width>291</width>
+     <height>121</height>
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="time_label_2">
+  <widget class="QListWidget" name="itemList_3">
    <property name="geometry">
     <rect>
-     <x>1180</x>
-     <y>530</y>
-     <width>391</width>
-     <height>20</height>
+     <x>950</x>
+     <y>490</y>
+     <width>291</width>
+     <height>121</height>
     </rect>
    </property>
-   <property name="text">
-    <string>เวลาในการคำนวน  :</string>
-   </property>
   </widget>
-  <widget class="QLabel" name="label_7">
+  <widget class="QListWidget" name="listWidget">
    <property name="geometry">
     <rect>
-     <x>1170</x>
-     <y>340</y>
-     <width>71</width>
-     <height>21</height>
+     <x>950</x>
+     <y>290</y>
+     <width>291</width>
+     <height>31</height>
     </rect>
    </property>
-   <property name="text">
-    <string>ที่ตั้งลูกค้า</string>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(46, 194, 234);</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_8">
+  <widget class="QListWidget" name="itemList_4">
    <property name="geometry">
     <rect>
-     <x>1170</x>
+     <x>950</x>
+     <y>460</y>
+     <width>291</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(46, 194, 234);</string>
+   </property>
+  </widget>
+  <widget class="QListView" name="listView_1">
+   <property name="geometry">
+    <rect>
+     <x>-20</x>
+     <y>650</y>
+     <width>1581</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(29, 75, 116);</string>
+   </property>
+  </widget>
+  <widget class="QListView" name="listView">
+   <property name="geometry">
+    <rect>
+     <x>950</x>
      <y>620</y>
-     <width>71</width>
+     <width>291</width>
      <height>21</height>
     </rect>
    </property>
-   <property name="text">
-    <string>ที่ตั้งลูกค้า</string>
-   </property>
   </widget>
-  <widget class="QListView" name="listView_7">
+  <widget class="QListWidget" name="listWidget_2">
    <property name="geometry">
     <rect>
-     <x>1170</x>
-     <y>570</y>
-     <width>401</width>
+     <x>950</x>
+     <y>80</y>
+     <width>201</width>
      <height>31</height>
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="supply_cost_label_3">
+  <widget class="QLabel" name="supply_label">
    <property name="geometry">
     <rect>
-     <x>1180</x>
-     <y>780</y>
-     <width>381</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>ต้นทุนสินค้า   :</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="supplier_label_3">
-   <property name="geometry">
-    <rect>
-     <x>1180</x>
-     <y>640</y>
-     <width>381</width>
+     <x>960</x>
+     <y>80</y>
+     <width>181</width>
      <height>31</height>
     </rect>
    </property>
    <property name="text">
-    <string>ชื่อซัพพลายเออร์ :</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="supplier_location_label_3">
-   <property name="geometry">
-    <rect>
-     <x>1180</x>
-     <y>670</y>
-     <width>381</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>ตำแหน่ง   :</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="customer_location_edit_3">
-   <property name="geometry">
-    <rect>
-     <x>1240</x>
-     <y>620</y>
-     <width>321</width>
-     <height>21</height>
-    </rect>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:600;&quot;&gt;Product:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="transport_cost_label_3">
    <property name="geometry">
     <rect>
-     <x>1180</x>
-     <y>750</y>
+     <x>960</x>
+     <y>580</y>
      <width>381</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>ราคาขนส่ง  :</string>
-   </property>
-  </widget>
-  <widget class="QListView" name="info_3">
-   <property name="geometry">
-    <rect>
-     <x>1170</x>
-     <y>600</y>
-     <width>401</width>
-     <height>241</height>
-    </rect>
+    <string>ต้นทุนรวม  :</string>
    </property>
   </widget>
   <widget class="QLabel" name="distance_label_3">
    <property name="geometry">
     <rect>
-     <x>1180</x>
-     <y>720</y>
+     <x>960</x>
+     <y>520</y>
      <width>381</width>
      <height>31</height>
     </rect>
@@ -626,12 +514,38 @@ QWidget#mainWidget{
     <string>ระยะทาง  :</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_9">
+  <widget class="QLabel" name="supplier_label_3">
    <property name="geometry">
     <rect>
-     <x>1340</x>
-     <y>569</y>
-     <width>221</width>
+     <x>960</x>
+     <y>500</y>
+     <width>381</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ชื่อซัพพลายเออร์ :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="supply_cost_label_3">
+   <property name="geometry">
+    <rect>
+     <x>960</x>
+     <y>550</y>
+     <width>381</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ต้นทุนสินค้า   :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>1050</x>
+     <y>120</y>
+     <width>91</width>
      <height>31</height>
     </rect>
    </property>
@@ -645,45 +559,84 @@ QWidget#mainWidget{
     </font>
    </property>
    <property name="text">
-    <string>ข้อมูล</string>
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Noto Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#000000;&quot;&gt;Suppiler 1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="time_label_3">
+  <widget class="QLabel" name="label_7">
    <property name="geometry">
     <rect>
-     <x>1180</x>
-     <y>810</y>
-     <width>391</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>เวลาในการคำนวน  :</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="supply_label_3">
-   <property name="geometry">
-    <rect>
-     <x>1180</x>
-     <y>690</y>
-     <width>371</width>
+     <x>1050</x>
+     <y>290</y>
+     <width>91</width>
      <height>31</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
    <property name="text">
-    <string>สินค้า    :</string>
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Noto Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#000000;&quot;&gt;Suppiler 2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
    </property>
   </widget>
-  <zorder>info_3</zorder>
-  <zorder>info_2</zorder>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>1050</x>
+     <y>460</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Noto Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#000000;&quot;&gt;Suppiler 3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <zorder>listView</zorder>
+  <zorder>listView_1</zorder>
+  <zorder>itemList_3</zorder>
+  <zorder>itemList_2</zorder>
   <zorder>info</zorder>
   <zorder>supplierList</zorder>
   <zorder>itemList</zorder>
   <zorder>customer_location_edit</zorder>
   <zorder>label</zorder>
   <zorder>supplier_label</zorder>
-  <zorder>supplier_location_label</zorder>
-  <zorder>supply_label</zorder>
   <zorder>transport_cost_label</zorder>
   <zorder>supply_cost_label</zorder>
   <zorder>map_widget</zorder>
@@ -692,35 +645,26 @@ QWidget#mainWidget{
   <zorder>listView_4</zorder>
   <zorder>listView_5</zorder>
   <zorder>label_2</zorder>
-  <zorder>label_3</zorder>
   <zorder>label_4</zorder>
-  <zorder>listView_1</zorder>
   <zorder>label_5</zorder>
-  <zorder>time_label</zorder>
   <zorder>distance_label</zorder>
   <zorder>importExcelButton</zorder>
   <zorder>distance_label_2</zorder>
   <zorder>supply_cost_label_2</zorder>
   <zorder>supplier_label_2</zorder>
-  <zorder>listView_6</zorder>
-  <zorder>supplier_location_label_2</zorder>
-  <zorder>customer_location_edit_2</zorder>
-  <zorder>supply_label_2</zorder>
   <zorder>transport_cost_label_2</zorder>
-  <zorder>label_6</zorder>
-  <zorder>time_label_2</zorder>
-  <zorder>label_7</zorder>
-  <zorder>label_8</zorder>
-  <zorder>listView_7</zorder>
-  <zorder>supply_cost_label_3</zorder>
-  <zorder>supplier_label_3</zorder>
-  <zorder>supplier_location_label_3</zorder>
-  <zorder>customer_location_edit_3</zorder>
+  <zorder>time_label</zorder>
+  <zorder>listWidget</zorder>
+  <zorder>itemList_4</zorder>
+  <zorder>listWidget_2</zorder>
+  <zorder>supply_label</zorder>
   <zorder>transport_cost_label_3</zorder>
   <zorder>distance_label_3</zorder>
-  <zorder>label_9</zorder>
-  <zorder>time_label_3</zorder>
-  <zorder>supply_label_3</zorder>
+  <zorder>supplier_label_3</zorder>
+  <zorder>supply_cost_label_3</zorder>
+  <zorder>label_6</zorder>
+  <zorder>label_7</zorder>
+  <zorder>label_8</zorder>
  </widget>
  <resources/>
  <connections/>
